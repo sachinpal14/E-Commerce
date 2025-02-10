@@ -20,24 +20,24 @@ export const category=[
     },
     {
       "id": 3,
-      "name": "Home Appliances",
+      "name": "Home & Kitchen",
       "image": home
     },
     {
       "id": 4,
-      "name": "Beauty & Personal Care",
+      "name": "Beauty",
       "image":beauty
     },
     {
       "id": 5,
-      "name": "Sports & Fitness",
+      "name": "Sports",
       "image": sports
     },
-    // {
-    //   "id": 6,
-    //   "name": "All",
-    //   "image":All 
-    // },
+    {
+      "id": 6,
+      "name": "All",
+      "image":All 
+    },
   
   ]
   

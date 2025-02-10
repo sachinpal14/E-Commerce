@@ -2,16 +2,18 @@ import React from 'react'
 import { GiShoppingCart } from "react-icons/gi";
 import { SiShopify } from "react-icons/si";
 import { IoSearch } from "react-icons/io5";
- 
+import { Link, NavLink } from 'react-router';
+
 
 const Navbar = () => {
   return (
     <div>
       <div className='topBottom bg-black h-12 w-full text-white flex justify-between items-center gap-2 p-2 md:gap-5 md:px-6 md:py-2'>
-        <div className='flex justify-between items-center gap-2 md:gap-4'>
+      <Link to='/' > <div className='flex justify-between items-center gap-2 md:gap-4'>
           <h1 className='indent-1 md:2xl'>Pikachu</h1>
           <SiShopify className='md:text-3xl' />
         </div>
+        </Link> 
         <form className=' w-[60%] rounded-full  flex '>
           <input
             type="text"
@@ -33,10 +35,10 @@ const Navbar = () => {
 
     <div className='bottomNav bg-gray-800 flex items-center justify-center gap-3 px-2 py-1 text-white'>
 
-   <a href="">Home</a>
-   <a href="">About</a>
-   <a href="">Contact Us</a>
-   <a href="">Help</a>
+   <Link  to='/'>Home</Link>
+   <Link to='shop'>Shop</Link>
+   <Link to=''>Contact Us</Link>
+   <Link to=''>Help</Link>
 
     </div>
     </div>
