@@ -3,7 +3,7 @@ const Card = ({id,Name,image}) => {
   return (
     <div  
    
-    className='w-52 h-64 rounded-lg px-4 py-2  hover:shadow-lg hover:shadow-black transition-all duration-300 flex flex-col gap-4 items-center text-2xl text-center indent-1'>
+    className='w-52 h-64 rounded-lg px-4 py-2  hover:shadow-lg hover:shadow-black transition-all duration-300 flex flex-col gap-4 items-center text-2xl text-center indent-1 active:scale-90'>
         <img 
         className='w-full h-[70%] object-center object-cover '
         src={image} alt="image" />

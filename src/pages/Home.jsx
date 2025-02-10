@@ -4,6 +4,8 @@ import Card from '../components/Card'
 import { category } from '../Category'
 import Popular from '../components/Popular/Popular'
 import { dummydata } from '../data'
+ 
+
 const Home = () => {
 
   const [cate, setCate] = useState(dummydata)
@@ -16,7 +18,7 @@ const Home = () => {
   }
 
   return (
-    <div className='w-full h-full'>
+    <div className='w-full h-full relative'>
 
       <div className="heroImg w-full flex items-center justify-center mt-4 ">
         <img
@@ -46,7 +48,7 @@ const Home = () => {
             id={item.id} name={item.name} price={item.price} image={item.image} />
         ))}
       </div>
-
+     
     </div>
   )
 }

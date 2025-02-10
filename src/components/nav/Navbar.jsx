@@ -3,9 +3,16 @@ import { GiShoppingCart } from "react-icons/gi";
 import { SiShopify } from "react-icons/si";
 import { IoSearch } from "react-icons/io5";
 import { Link, NavLink } from 'react-router';
+import {useSelector } from 'react-redux';
+ 
 
 
 const Navbar = () => {
+let items=useSelector(state=>state.cart)
+ 
+
+
+
   return (
     <div>
       <div className='topBottom bg-black h-12 w-full text-white flex justify-between items-center gap-2 p-2 md:gap-5 md:px-6 md:py-2'>
@@ -29,7 +36,7 @@ const Navbar = () => {
           <GiShoppingCart
             className='text-2xl md:text-3xl'
           />
-          <span className='absolute top-[-10px] right-[-5px]'>0</span>
+          <span className='absolute top-[-10px] right-[-5px]'>{items.length}</span>
         </div>
       </div>
 
@@ -37,7 +44,7 @@ const Navbar = () => {
 
    <Link  to='/'>Home</Link>
    <Link to='shop'>Shop</Link>
-   <Link to=''>Contact Us</Link>
+   <Link to='cart'>Cart</Link>
    <Link to=''>Help</Link>
 
     </div>
