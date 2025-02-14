@@ -1,0 +1,5 @@
+ 
+.anim input:focus ~label,
+.anim input:valid ~label {
+    top: 0%;
+}

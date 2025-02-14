@@ -25,27 +25,29 @@ let items=useSelector(state=>state.cart)
           <input
             type="text"
             placeholder='Search Items'
-            className='bg-white outline-none w-full rounded-l-full text-black px-2 py-1 placeholder:text-base'
+            className='bg-white outline-none w-full rounded-l-lg text-black px-2 py-1 placeholder:text-base'
 
           />
-          <button className='cursor-pointer bg-white rounded-r-full text-black px-4 py-2 text-xl'>
+          <button className='cursor-pointer bg-white rounded-r-lg text-black px-4 py-2 text-xl'>
             <IoSearch />
           </button>
         </form>
-        <div className=' relative'>
+      <Link to='cart'>
+      <div className=' relative'>
           <GiShoppingCart
-            className='text-2xl md:text-3xl'
+            className='text-2xl md:text-3xl cursor-pointer'
           />
           <span className='absolute top-[-10px] right-[-5px]'>{items.length}</span>
         </div>
+      </Link>
       </div>
 
     <div className='bottomNav bg-gray-800 flex items-center justify-center gap-3 px-2 py-1 text-white'>
 
    <Link  to='/'>Home</Link>
    <Link to='shop'>Shop</Link>
-   <Link to='cart'>Cart</Link>
-   <Link to=''>Help</Link>
+   <Link to='grocery'>Grocery</Link>
+   <Link to='feedback'>Feedback</Link>
 
     </div>
     </div>

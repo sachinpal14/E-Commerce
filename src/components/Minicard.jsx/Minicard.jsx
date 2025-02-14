@@ -1,7 +1,7 @@
 import React from 'react'
 import { MdDeleteOutline } from 'react-icons/md'
 import { useDispatch } from 'react-redux'
-import { decreamentItem, deleteItem } from '../../redux/shopSlice'
+import {   decreaseQuantity,  removeItem } from '../../redux/shopSlice'
  
  
 
@@ -9,16 +9,12 @@ import { decreamentItem, deleteItem } from '../../redux/shopSlice'
 const Minicard = ({ image, name, price, id, qty }) => {
  let dispatch=useDispatch()
 
- function handleDelete(qty){
-   if(qty>1) {
-    console.log("decreament is called" ,qty);
-    
-    dispatch(decreamentItem(id))
+ function handleDelete(qty,id){
+   if(qty===1) {
+    dispatch(removeItem(id))
    }
-   else{
-    console.log("delete is called " , qty);
-    
-dispatch(deleteItem(id))
+   else {
+    dispatch(decreaseQuantity(id))
    }
     
     
@@ -44,8 +40,7 @@ dispatch(deleteItem(id))
                 <div 
                onClick={()=>{
                 
-                handleDelete(qty)
-                console.log("clicked");
+                handleDelete(qty,id)
                 
                }}
                 className='border-2 rounded-md px-7 py-1 border-red-600 cursor-pointer hover:shadow-[2px_2px_10px_red] transition-all duration-300 active:scale-90'>

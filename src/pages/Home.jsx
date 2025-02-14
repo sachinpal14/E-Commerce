@@ -1,21 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import backGif from '../assets/bg0.gif'
 import Card from '../components/Card'
-import { category } from '../Category'
-import Popular from '../components/Popular/Popular'
-import { dummydata } from '../data'
  
+import Popular from '../components/Popular/Popular'
+import {useFilter } from '../contexts/FIterContext'
 
 const Home = () => {
 
-  const [cate, setCate] = useState(dummydata)
+  const {setPage,filterCategory,items,categ} =useFilter()
+  
+  useEffect(()=>{
+    setPage('shop')
+  },[])
+  
 
-  function filterCategory(category) {
 
-    let updateData = dummydata.filter(item => item.category==category)
-    setCate(updateData)
-
-  }
+  
 
   return (
     <div className='w-full h-full relative'>
@@ -27,9 +27,9 @@ const Home = () => {
       </div>
 
       <div className='flex flex-wrap gap-4 px-4 py-2 justify-center items-center  md:mt-5 '>
-        {category.slice(0,5).map((item, idx) => {
+        {categ .slice(0,5).map((item, idx) => {
           return <div key={idx} onClick={() => {
-            filterCategory(item.name)
+             filterCategory(item.name)
           }}>
             <Card
               id={item.id} Name={item.name} image={item.image} />
@@ -42,7 +42,7 @@ const Home = () => {
       </div>
       <div className='  mt-8 flex flex-wrap items-center gap-6 justify-evenly p-4 '>
 
-        {cate.map((item, idx) => (
+        {items.map((item, idx) => (
           <Popular
             key={idx}
             id={item.id} name={item.name} price={item.price} image={item.image} />

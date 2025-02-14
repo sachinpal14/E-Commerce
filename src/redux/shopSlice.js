@@ -1,33 +1,34 @@
 import { createSlice } from "@reduxjs/toolkit";
+ 
 
+ 
 export const shopSlice = createSlice({
+    
+    
     name: "cart",
-    initialState: [],
+    initialState: [
+       
+    ],
     reducers: {
         addItem: (state, action) => {
             let existed = state.find(item => item.id === action.payload.id)
             if (existed) return state.map((item) => (item.id === action.payload.id ? { ...item, qty: item.qty + 1 } : item))
             else state.push(action.payload)
         },
-        deleteItem: (state, action) => {
-           
-           return state.filter((item) => item.id !== action.payload.id)
-
-
+        removeItem: (state, action) => {
+            return state.filter(item => item.id !== action.payload);
         },
-
-        decreamentItem:(state,action)=>{
-           let updateSystem= state.find((item)=>(item.id===action.payload))
-           if(updateSystem) 
-            
-            return state.map(item=>item.id===action.id && item)
-            
-
-        }
+        decreaseQuantity: (state, action) => {
+            const item = state.find(item => item.id === action.payload);
+            if (item) item.qty -= 1;
+        },
+        
+       
+        
 
 
     }
 })
 
-export const { addItem, deleteItem ,decreamentItem} = shopSlice.actions
+export const { addItem, removeItem, decreaseQuantity  } = shopSlice.actions
 export default shopSlice.reducer

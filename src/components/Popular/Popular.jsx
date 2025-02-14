@@ -8,7 +8,7 @@ const Popular = ({ id, name, price, image }) => {
 
 
 
- let dispatch=useDispatch()
+  let dispatch = useDispatch()
 
 
   return (
@@ -29,7 +29,7 @@ const Popular = ({ id, name, price, image }) => {
       </div>
       <div className='w-full flex items-center justify-start px-4 py-2 h-[25%]'>
         <button
-          onClick={()=>dispatch(addItem({name:name,image:image,price:price,id:id, qty:dispatch.length}))}
+          onClick={() => dispatch(addItem({ name: name, image: image, price: price, id: id, qty: dispatch.length }))}
           className='px-5 text-xl cursor-pointer hover:shadow-[5px_5px_rgba(0,0,0,0.90)] hover:bg-gray-400 hover:text-black transition-all duration-500 font-semibold py-2 bg-gray-800 text-white rounded active:scale-80'>Add +</button>
       </div>
 
