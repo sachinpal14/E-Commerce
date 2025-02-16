@@ -17,9 +17,9 @@ const Home = () => {
   const iconduration = (i) => ({
     initial: { y: -10 },
     animate: {
-      y: [10, -20],
+      y: [10, -15],
       transition: {
-        duration: i * 0.7,
+        duration: i * 1.5,
         ease: "linear",
         repeat: Infinity,
         repeatType: "reverse",
@@ -78,7 +78,9 @@ const Home = () => {
       <motion.div className="mt-8 flex flex-wrap items-center gap-6 justify-evenly p-4">
         {filteredItems.length > 0 ? (
           filteredItems.map((item, idx) => (
-            <motion.div key={idx}>
+            <motion.div 
+             
+            key={idx}>
               <Popular
                 id={item.id}
                 name={item.name}

@@ -46,10 +46,10 @@ const { setInput,items,setPage}=useFilter()
 
     <div className='bottomNav bg-gray-800 flex items-center justify-center gap-3 px-2 py-1 text-white'>
 
-   <Link  to='/'>Home</Link>
-   <Link to='shop'>Shop</Link>
-   <Link to='grocery'>Grocery</Link>
-   <Link to='feedback'>Feedback</Link>
+   <NavLink  to='/' className={({isActive}) => isActive ? "bg-gray-400 px-4 py-1 rounded-xl " :"bg-transparent"} >Home</NavLink>
+   <NavLink to='shop' className={({isActive}) => isActive ? "bg-gray-400 px-4 py-1 rounded-xl " :"bg-transparent"} >Shop</NavLink>
+   <NavLink to='grocery' className={({isActive}) => isActive ? "bg-gray-400 px-4 py-1 rounded-xl " :"bg-transparent"} >Grocery</NavLink>
+   <NavLink to='feedback' className={({isActive}) => isActive ? "bg-gray-400 px-4 py-1 rounded-xl " :"bg-transparent"} >Feedback</NavLink>
 
     </div>
     </div>

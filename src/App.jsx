@@ -7,6 +7,7 @@ import Shop from './pages/Shop'
 import Cart from './components/cart/Cart'
 import Grocery from './pages/Grocery'
 import Feedback from './pages/Feedback'
+import { ToastContainer } from 'react-toastify'
 const App = () => {
 
   return (
@@ -22,6 +23,7 @@ const App = () => {
    </Routes>
    <Footer/>
    </BrowserRouter>
+   <ToastContainer/>
 
     </>
   )

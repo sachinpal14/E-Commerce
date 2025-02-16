@@ -1,47 +1,41 @@
-import React, { useEffect } from 'react'
-import Popular from '../components/Popular/Popular'
-import Card from '../components/Card'
-import { useFilter } from '../contexts/FIterContext'
-import { motion } from 'motion/react'
+import React, { useEffect } from "react";
+import Popular from "../components/Popular/Popular";
+import Card from "../components/Card";
+import { useFilter } from "../contexts/FIterContext";
+import { motion } from "motion/react";
+import { ToastContainer } from "react-toastify";
 
 const Grocery = () => {
-
-
   const iconduration = (i) => ({
     initial: { y: -10 },
     animate: {
       y: [10, -20],
       transition: {
-        duration: i * 0.6,
+        duration: i * 1.5,
         ease: "linear",
         repeat: Infinity,
-        repeatType: "reverse"
-      }
+        repeatType: "reverse",
+      },
     },
+  });
+  const { setPage, filterCategory, items, categ, input } = useFilter();
 
-  })
-  const { setPage, filterCategory, items, categ ,input} = useFilter()
-
-
-  
-    const filteredItems = items.filter((item) =>
-      item.name.toLowerCase().includes(input.toLowerCase())
-    );
+  const filteredItems = items.filter((item) =>
+    item.name.toLowerCase().includes(input.toLowerCase())
+  );
   useEffect(() => {
-    setPage('grocery')
-  }, [])
-
-
-
+    setPage("grocery");
+  }, []);
 
   return (
-    <div className=' w-full h-full p-6 flex flex-col space-y-5'>
-      <span className='text-center font-bold text-2xl  '>Grocery 🍌</span>
+    <div className=" w-full h-full p-6 flex flex-col space-y-5">
+      <span className="text-center font-bold text-2xl  ">Grocery 🍌</span>
       <motion.div
         whileInView={{ opacity: 1, x: 0 }}
         initial={{ x: -100, opacity: 0 }}
         transition={{ duration: 1.5, delay: 0.3 }}
-        className='flex flex-wrap items-center justify-center'>
+        className="flex flex-wrap items-center justify-center"
+      >
         {categ.map((item, idx) => (
           <motion.div
             variants={iconduration(idx + 1)}
@@ -49,11 +43,10 @@ const Grocery = () => {
             animate="animate"
             key={idx}
             onClick={() => {
-              filterCategory(item.name)
+              filterCategory(item.name);
             }}
-
-
-            className='flex flex-wrap px-4 py-2 justify-between items-center gap-5 '>
+            className="flex flex-wrap px-4 py-2 justify-between items-center gap-5 "
+          >
             <Card Name={item.name} image={item.image} id={item.id} />
           </motion.div>
         ))}
@@ -77,9 +70,9 @@ const Grocery = () => {
           </p>
         )}
       </motion.div>
-
+      <ToastContainer />
     </div>
-  )
-}
+  );
+};
 
-export default Grocery
+export default Grocery;

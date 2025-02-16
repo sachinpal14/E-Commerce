@@ -4,6 +4,7 @@ import Popular from '../components/Popular/Popular'
 import { FaShopify } from 'react-icons/fa'
 import { useFilter } from '../contexts/FIterContext'
 import { motion } from 'motion/react'
+import { ToastContainer } from 'react-toastify'
 
 const Shop = () => {
 
@@ -13,7 +14,7 @@ const Shop = () => {
     animate: {
       y: [10, -20],
       transition: {
-        duration: i * 0.6,
+        duration: i * 1.5,
         ease: "linear",
         repeat: Infinity,
         repeatType: "reverse"
@@ -89,7 +90,7 @@ const Shop = () => {
           </p>
         )}
       </motion.div>
-       
+       <ToastContainer/>
     </div>
   )
 }

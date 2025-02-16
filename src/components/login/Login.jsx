@@ -28,7 +28,7 @@ const Login = () => {
                     <textarea required name='message' placeholder='Enter Feedback' className=' resize-none w-full h-24  shadow-xl outine-none border-none focus:border-none focus:outline-none rounded px-6 py-2'></textarea>
                 </div>
 
-                <button className='px-4 py-2 bg-gray-900 rounded-full text-2xl text-white cursor-pointer hover:bg-gray-300 active:scale-90 hover:text-black transition-all duration-300  '>Sumbit</button>
+                <button className='px-4 py-2 bg-gray-900 rounded-full text-2xl text-white cursor-pointer hover:bg-gray-300 active:scale-90 hover:text-black transition-all duration-300 hover:shadow-[inset_2px_2px_2px_black] font-semibold '>Sumbit</button>
 
             </form>
 
