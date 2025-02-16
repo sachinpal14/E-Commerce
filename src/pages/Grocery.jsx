@@ -34,7 +34,7 @@ const Grocery = () => {
         whileInView={{ opacity: 1, x: 0 }}
         initial={{ x: -100, opacity: 0 }}
         transition={{ duration: 1.5, delay: 0.3 }}
-        className="flex flex-wrap items-center justify-center"
+        className="flex flex-wrap  justify-center bg-red-400"
       >
         {categ.map((item, idx) => (
           <motion.div
@@ -65,7 +65,7 @@ const Grocery = () => {
             </motion.div>
           ))
         ) : (
-          <p className="text-xl font-semibold text-gray-500">
+          <p className="text-xl font-semibold text-gray-500 py-4 ">
             No products found
           </p>
         )}

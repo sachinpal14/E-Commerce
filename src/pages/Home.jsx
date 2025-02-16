@@ -44,7 +44,7 @@ const Home = () => {
         whileInView={{ opacity: 1, x: 0 }}
         initial={{ x: -100, opacity: 0 }}
         transition={{ duration: 1.5, delay: 0.3 }}
-        className="flex flex-wrap gap-4 px-4 py-2 justify-center items-center  md:mt-5 "
+        className="flex flex-wrap gap-4 px-4 py-2 justify-center  items-center  w-full  "
       >
         {categ.slice(0, 5).map((item, idx) => {
           return (
@@ -53,6 +53,7 @@ const Home = () => {
               initial="initial"
               animate="animate"
               key={idx}
+              className="flex flex-wrap px-4 py-2 justify-between items-center gap-5"
               onClick={() => {
                 filterCategory(item.name);
               }}
