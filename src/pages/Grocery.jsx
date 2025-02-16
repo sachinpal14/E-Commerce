@@ -34,7 +34,7 @@ const Grocery = () => {
         whileInView={{ opacity: 1, x: 0 }}
         initial={{ x: -100, opacity: 0 }}
         transition={{ duration: 1.5, delay: 0.3 }}
-        className="flex flex-wrap  justify-center bg-red-400"
+        className="flex flex-wrap  justify-center "
       >
         {categ.map((item, idx) => (
           <motion.div
