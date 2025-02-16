@@ -11,6 +11,7 @@ export const FilterProvider = ({ children }) => {
   const [items, setItems] = useState([]);
   const [categ, setcateg] = useState([])
   const [unfilter, setUnfilter] = useState([])
+  const [input,setInput]=useState("")
  
 
   const setPage = (page) => {
@@ -48,7 +49,7 @@ export const FilterProvider = ({ children }) => {
 
 
   return (
-    <FilterContext.Provider value={{ setPage, filterCategory,  items, categ  }}>
+    <FilterContext.Provider value={{ setPage, filterCategory,  items, categ ,input,setInput }}>
       {children}
     </FilterContext.Provider>
   );

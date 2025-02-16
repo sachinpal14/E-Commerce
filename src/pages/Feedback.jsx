@@ -3,8 +3,9 @@ import Login from '../components/login/Login'
 
 const Feedback = () => {
   return (
-    <div>
+    <div  >
         <Login/>
+       
     </div>
   )
 }

@@ -1,6 +1,8 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { addItem } from '../../redux/shopSlice'
+import { motion } from 'motion/react'
+
 
 
 
@@ -14,8 +16,9 @@ const Popular = ({ id, name, price, image }) => {
   return (
 
 
-    <div
-      id={id}
+    <motion.div
+
+    id={id}
       className='shadow-[2px_2px_25px_rgba(0,0,0,0.25),-2px_-2px_25px_rgba(0,0,0,0.25)] flex flex-col w-80 h-[450px] gap-4 items-center py-2 rounded-lg  hover:scale-105  transition-all duration-500'>
       <div className='w-[80%] h-[50%] bg-white rounded-xl '>
         <img
@@ -33,7 +36,7 @@ const Popular = ({ id, name, price, image }) => {
           className='px-5 text-xl cursor-pointer hover:shadow-[5px_5px_rgba(0,0,0,0.90)] hover:bg-gray-400 hover:text-black transition-all duration-500 font-semibold py-2 bg-gray-800 text-white rounded active:scale-80'>Add +</button>
       </div>
 
-    </div>
+    </motion.div>
   )
 }
 
