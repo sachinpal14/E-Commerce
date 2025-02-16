@@ -22,7 +22,7 @@ export const shopSlice = createSlice({
             const item = state.find(item => item.id === action.payload);
             if (item) item.qty -= 1;
         },
-        
+
        
         
 

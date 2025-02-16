@@ -47,6 +47,8 @@ export const FilterProvider = ({ children }) => {
 
   }
 
+  
+
 
   return (
     <FilterContext.Provider value={{ setPage, filterCategory,  items, categ ,input,setInput }}>

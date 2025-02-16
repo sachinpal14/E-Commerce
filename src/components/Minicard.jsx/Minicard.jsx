@@ -30,13 +30,13 @@ const Minicard = ({ image, name, price, id, qty }) => {
                     src={image} alt="" />
 
                 <div className='flex flex-col gap-5 text-xl '>
-                    <h1 className='font-semibold '>{name}</h1>
+                    <h1 className='font-semibold'>{name}</h1>
                     <h2 className='font-bold'>Rs:{price}/-</h2>
                     <h3 className='font-medium'>Qty:{qty}</h3>
                 </div>
             </div>
 
-            <div className='flex flex-col justify-evenly px-4 py-3'>
+            <div className='flex w-[30%] items-center  flex-col justify-end md:justify-center px-4 py-3'>
                 <div 
                onClick={()=>{
                 

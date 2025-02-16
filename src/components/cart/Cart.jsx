@@ -27,7 +27,7 @@ let navigate=useNavigate()
       </div>
       
       <div>
-      {items.length == 0 ? <div className='h-full w-full text-7xl flex items-center justify-center font-bold '> <h1>Empty Cart</h1></div> : items.map((item, idx) => <Minicard key={idx} price={item.price} image={item.image} name={item.name} id={item.id} qty={item.qty} />)}
+      {items.length == 0 ? <div className='h-full w-full text-7xl flex items-center justify-center font-bold '> <h1 className='text-center'>Empty Cart</h1></div> : items.map((item, idx) => <Minicard key={idx} price={item.price} image={item.image} name={item.name} id={item.id} qty={item.qty} />)}
       {items.length !== 0 && <div className=' mt-4 w-full h-fit flex justify-center items-center flex-col border-t-2 border-t-gray-700'>
         <h1 className='text-xl font-semibold mt-4 '>Total Items:{items.length} </h1>
         <h1 className='text-2xl font-bold mt-4'>Total Rs:{totalPrice}/-</h1></div>}

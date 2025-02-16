@@ -1,37 +1,83 @@
 import React, { useEffect } from 'react'
 import Popular from '../components/Popular/Popular'
- 
 import Card from '../components/Card'
 import { useFilter } from '../contexts/FIterContext'
+import { motion } from 'motion/react'
 
 const Grocery = () => {
 
 
-  const { setPage, filterCategory, items, categ } = useFilter()
+  const iconduration = (i) => ({
+    initial: { y: -10 },
+    animate: {
+      y: [10, -20],
+      transition: {
+        duration: i * 0.6,
+        ease: "linear",
+        repeat: Infinity,
+        repeatType: "reverse"
+      }
+    },
 
+  })
+  const { setPage, filterCategory, items, categ ,input} = useFilter()
+
+
+  
+    const filteredItems = items.filter((item) =>
+      item.name.toLowerCase().includes(input.toLowerCase())
+    );
   useEffect(() => {
     setPage('grocery')
   }, [])
 
 
+
+
   return (
     <div className=' w-full h-full p-6 flex flex-col space-y-5'>
-      <span className='text-center font-bold text-2xl'>Grocery 🍌</span>
-      <div className='flex flex-wrap '>
+      <span className='text-center font-bold text-2xl  '>Grocery 🍌</span>
+      <motion.div
+        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ x: -100, opacity: 0 }}
+        transition={{ duration: 1.5, delay: 0.3 }}
+        className='flex flex-wrap items-center justify-center'>
         {categ.map((item, idx) => (
-          <div key={idx}
+          <motion.div
+            variants={iconduration(idx + 1)}
+            initial="initial"
+            animate="animate"
+            key={idx}
             onClick={() => {
               filterCategory(item.name)
             }}
+
+
             className='flex flex-wrap px-4 py-2 justify-between items-center gap-5 '>
             <Card Name={item.name} image={item.image} id={item.id} />
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
-      <div className='flex flex-wrap gap-5 justify-evenly p-6 '>
-        {items.map((item, idx) => <  Popular key={idx} name={item.name} id={item.id} price={item.price} image={item.image} />)}
-      </div>
+      <motion.div className="mt-8 flex flex-wrap items-center gap-6 justify-evenly p-4">
+        {filteredItems.length > 0 ? (
+          filteredItems.map((item, idx) => (
+            <motion.div key={idx}>
+              <Popular
+                id={item.id}
+                name={item.name}
+                price={item.price}
+                image={item.image}
+              />
+            </motion.div>
+          ))
+        ) : (
+          <p className="text-xl font-semibold text-gray-500">
+            No products found
+          </p>
+        )}
+      </motion.div>
+
     </div>
   )
 }

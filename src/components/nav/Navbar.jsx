@@ -11,7 +11,7 @@ import { useFilter } from '../../contexts/FIterContext';
 const Navbar = () => {
 let itemss=useSelector(state=>state.cart)
  
-const {input,setInput,items,setPage}=useFilter()
+const { setInput,items,setPage}=useFilter()
  
 
   return (
@@ -25,16 +25,14 @@ const {input,setInput,items,setPage}=useFilter()
         <form className=' w-[60%] rounded-full  flex '>
           <input
           onChange={(e)=>{
-            setInput(e.target.value)
+           setInput(e.target.value)
           }}
             type="text"
             placeholder='Search Items'
-            className='bg-white outline-none w-full rounded-l-lg text-black px-2 py-1 placeholder:text-base'
+            className='bg-white outline-none w-full rounded-lg text-black px-2 py-1 placeholder:text-base'
 
           />  
-          <button className='cursor-pointer bg-white rounded-r-lg text-black px-4 py-2 text-xl'>
-            <IoSearch />
-          </button>
+      
         </form>
       <Link to='cart'>
       <div className=' relative'>
