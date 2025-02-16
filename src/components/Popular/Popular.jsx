@@ -22,7 +22,7 @@ const Popular = ({ id, name, price, image }) => {
 whileInView={{ y: -10, opacity: 1 }}
       transition={{ delay: 0.1, duration: 0.3, ease: "linear",}}
       id={id}
-      className="shadow-[2px_2px_25px_rgba(0,0,0,0.25),-2px_-2px_25px_rgba(0,0,0,0.25)] flex flex-col my-7 mx-2 w-80 md:h-[450px] h-[325px] md:gap-4 gap-1.5 items-center py-2 rounded-lg  hover:scale-105 px-1  transition-all duration-500"
+      className="shadow-[2px_2px_25px_rgba(0,0,0,0.25),-2px_-2px_25px_rgba(0,0,0,0.25)] flex flex-col  my-7 mx-2 w-80 md:h-[450px] h-[325px] md:gap-4 gap-3 items-center py-2 rounded-lg  hover:scale-105 px-1  transition-all duration-500"
     >
       <div className="w-[80%] h-[50%] bg-white rounded-xl ">
         <img
