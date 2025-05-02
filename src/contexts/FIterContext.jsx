@@ -12,17 +12,20 @@ export const FilterProvider = ({ children }) => {
   const [categ, setcateg] = useState([])
   const [unfilter, setUnfilter] = useState([])
   const [input,setInput]=useState("")
+  const [inputState,setinputState]=useState(false)
+  const [details, setDetails] = useState(false)
+  const [defaultItems, setDefaultItems] = useState(true);
  
 
   const setPage = (page) => {
     switch (page) {
-      case "grocery": {
+      case "/grocery": {
         setItems(grocData)
         setcateg(grocCate)
         setUnfilter(grocData)
         break;
       }
-      case "shop": {
+      case "/shop": {
         setItems(dummydata)
         setcateg(category)
         setUnfilter(dummydata)
@@ -51,7 +54,7 @@ export const FilterProvider = ({ children }) => {
 
 
   return (
-    <FilterContext.Provider value={{ setPage, filterCategory,  items, categ ,input,setInput }}>
+    <FilterContext.Provider value={{ setPage, filterCategory,details,setDetails,defaultItems,setDefaultItems,  items, categ ,input,setInput ,setinputState,inputState }}>
       {children}
     </FilterContext.Provider>
   );

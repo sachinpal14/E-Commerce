@@ -1,11 +1,12 @@
 import React from 'react'
-import Login from '../components/login/Login'
+import FeedbackForm from '../components/FeedbackForm/FeedbackForm'
+
 
 const Feedback = () => {
   return (
     <div  >
-        <Login/>
        
+       <FeedbackForm />
     </div>
   )
 }

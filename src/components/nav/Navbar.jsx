@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { GiShoppingCart } from "react-icons/gi";
 import { SiShopify } from "react-icons/si";
 import { IoSearch } from "react-icons/io5";
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, useLocation } from 'react-router';
 import {useSelector } from 'react-redux';
 import { useFilter } from '../../contexts/FIterContext';
  
@@ -10,13 +10,21 @@ import { useFilter } from '../../contexts/FIterContext';
 
 const Navbar = () => {
 let itemss=useSelector(state=>state.cart)
+ let location=useLocation()
+const { setInput,items,setPage,inputSystem,setinputState}=useFilter()
  
-const { setInput,items,setPage}=useFilter()
- 
+const handleCategShow =(e)=>{
+if(e.target.value!="") {
+  setinputState(true)
+}
+else {
+  setinputState(false)
+}
+}
 
   return (
 <div>
-      <div className='topBottom bg-black h-12 w-full text-white flex justify-between items-center gap-2 p-2 md:gap-5 md:px-6 md:py-2'>
+      {( location.pathname==="/" || location.pathname==="/shop" || location.pathname==="/grocery" ) && <div className='topBottom bg-black h-12 w-full text-white flex justify-between items-center gap-2 p-2 md:gap-5 md:px-6 md:py-2'>
       <Link to='/' > <div className='flex justify-between items-center gap-2 md:gap-4'>
           <h1 className='indent-1 md:2xl'>Pikachu</h1>
           <SiShopify className='md:text-3xl' />
@@ -24,8 +32,12 @@ const { setInput,items,setPage}=useFilter()
         </Link> 
         <form className=' w-[60%] rounded-full  flex '>
           <input
+          
           onChange={(e)=>{
+           handleCategShow(e)
            setInput(e.target.value)
+           console.log(e.target.value);
+           
           }}
             type="text"
             placeholder='Search Items'
@@ -43,13 +55,20 @@ const { setInput,items,setPage}=useFilter()
         </div>
       </Link>
       </div>
-
-    <div className='bottomNav bg-gray-800 flex items-center justify-center gap-3 px-2 py-1 text-white'>
+ }
+    <div className='bottomNav bg-gray-800 flex items-center justify-center gap-3 px-2 py-1 text-white relative'>
 
    <NavLink  to='/' className={({isActive}) => isActive ? "bg-gray-400 px-4 py-1 rounded-xl " :"bg-transparent"} >Home</NavLink>
    <NavLink to='shop' className={({isActive}) => isActive ? "bg-gray-400 px-4 py-1 rounded-xl " :"bg-transparent"} >Shop</NavLink>
    <NavLink to='grocery' className={({isActive}) => isActive ? "bg-gray-400 px-4 py-1 rounded-xl " :"bg-transparent"} >Grocery</NavLink>
    <NavLink to='feedback' className={({isActive}) => isActive ? "bg-gray-400 px-4 py-1 rounded-xl " :"bg-transparent"} >Feedback</NavLink>
+
+   <button
+    onClick={() => {
+      localStorage.removeItem("owner_logged_in");
+      window.location.href = "/login";
+    }}
+   className='absolute top-50% right-2 bg-red-500 cursor-pointer px-4 py-1  rounded-md'>Logout</button>
 
     </div>
     </div>

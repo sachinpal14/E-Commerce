@@ -18,13 +18,13 @@ const Grocery = () => {
       },
     },
   });
-  const { setPage, filterCategory, items, categ, input } = useFilter();
+  const { setPage, filterCategory, items, categ, input ,inputState } = useFilter();
 
   const filteredItems = items.filter((item) =>
     item.name.toLowerCase().includes(input.toLowerCase())
   );
   useEffect(() => {
-    setPage("grocery");
+    setPage("/grocery");
   }, []);
 
   return (
@@ -36,7 +36,7 @@ const Grocery = () => {
         transition={{ duration: 1.5, delay: 0.3 }}
         className="flex flex-wrap  justify-center "
       >
-        {categ.map((item, idx) => (
+        {!inputState && categ.map((item, idx) => (
           <motion.div
             variants={iconduration(idx + 1)}
             initial="initial"

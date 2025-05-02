@@ -5,6 +5,7 @@ import { FaShopify } from 'react-icons/fa'
 import { useFilter } from '../contexts/FIterContext'
 import { motion } from 'motion/react'
 import { ToastContainer } from 'react-toastify'
+import { Outlet } from 'react-router'
 
 const Shop = () => {
 
@@ -24,7 +25,7 @@ const Shop = () => {
   })
 
 
-  const { setPage, filterCategory, items, categ ,input,setInput} = useFilter()
+  const { setPage, filterCategory, items, categ ,input,setInput,inputState} = useFilter()
 
   
   const filteredItems = items.filter((item) =>
@@ -32,7 +33,7 @@ const Shop = () => {
   );
 
   useEffect(() => {
-    setPage('shop')
+    setPage('/shop')
   }, [])
 
 
@@ -51,7 +52,7 @@ const Shop = () => {
         initial={{ x: -100, opacity: 0 }}
         transition={{ duration: 1.5, delay: 0.3 }}
         className='flex flex-wrap gap-4 px-4 py-2 justify-center items-center  md:mt-5 '>
-        {categ.map((item, idx) => {
+        {!inputState && categ.map((item, idx) => {
           return <motion.div
             variants={iconduration(idx + 2)}
             initial="initial"
@@ -65,13 +66,13 @@ const Shop = () => {
         })}
       </motion.div>
 
-      <div className='m-6 w-full   text-black px-4 py-5 leading-5'>
+     {!inputState &&  <div className='m-6 w-full   text-black px-4 py-5 leading-5'>
         <motion.h1
           initial={{ x: "-100%", opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ type: "spring", stiffness: 100, delay: 0.5 }}
           className='text-center text-6xl font-bold'>Trending Product</motion.h1>
-      </div>
+      </div>}
       <motion.div className="mt-8 flex flex-wrap items-center gap-6 justify-evenly p-4">
         {filteredItems.length > 0 ? (
           filteredItems.map((item, idx) => (
@@ -91,6 +92,8 @@ const Shop = () => {
         )}
       </motion.div>
        <ToastContainer/>
+
+       <Outlet/>
     </div>
   )
 }
