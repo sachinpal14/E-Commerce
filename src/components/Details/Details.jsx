@@ -13,17 +13,18 @@ const Details = ({ items }) => {
         <img src={detail.image} alt="" />
         <div className="flex flex-col w-full ">
           <h1 className="text-4xl  font-bold mb-4">Basic Details </h1>
-          <h1 className="text-2xl text-gray-900 font-semibold ">{detail.name}</h1>
-          <h1 className="text-2xl text-gray-900 font-semibold">Category:-{detail.category}</h1>
-          <h1 className="text-2xl text-gray-900 font-semibold">Price:-{detail.price}/-</h1>
+          <h1 className="text-2xl text-gray-900 font-semibold "><span className="">{detail.name}</span></h1>
+         
+          <h1 className="text-2xl text-gray-900 font-semibold ">Category:- <span className="text-gray-600 underline">{detail.category}</span></h1>
+          <h1 className="text-2xl text-gray-900 font-semibold">Price:- <span className="text-gray-600 underline">{detail.price}</span> /-</h1>
         </div>
         <div className="w-full ">
           <h1 className="text-4xl font-bold mb-4">Specifications</h1>
           <div>
             <ul>
-            <li className="text-xl text-gray-900 font-semibold">{detail.specifications?.Display}</li>
-            <li className="text-xl text-gray-900 font-semibold">{detail.specifications?.RAM ?? detail.specifications.Memory}</li>
-            <li className="text-xl text-gray-900 font-semibold">{detail.specifications?.Processor}</li>
+           { <li className="text-xl text-gray-900 font-semibold">Display:-<span className="text-gray-600 underline">{detail.specifications?.Display ?? "N/A" }</span></li>}
+            <li className="text-xl text-gray-900 font-semibold">RAM:- <span >{detail.specifications?.RAM ?? detail.specifications.Memory ?? "N/A"}</span></li>
+            <li className="text-xl text-gray-900 font-semibold"><span>{detail.specifications?.Processor }</span></li>
             <li className="text-xl text-gray-900 font-semibold">{detail.specifications?.Chip}</li>
             <li className="text-xl text-gray-900 font-semibold">{detail.specifications?.Storage}</li>
             <li className="text-xl text-gray-900 font-semibold">{detail.specifications?.Ports}</li>
