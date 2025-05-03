@@ -68,7 +68,7 @@ else {
       localStorage.removeItem("owner_logged_in");
       window.location.href = "/login";
     }}
-   className='absolute top-50% right-2 bg-red-500 cursor-pointer px-4 py-1  rounded-md'>Logout</button>
+   className='absolute top-50% right-1 md:right-2 active:scale-90 transition-all duration-150 bg-red-500 cursor-pointer md:px-4 md:py-0 md:text-[15px] px-2 py-1 text-[10px] rounded-md'>Logout</button>
 
     </div>
     </div>

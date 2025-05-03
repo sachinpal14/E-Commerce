@@ -35,34 +35,30 @@ const Login = () => {
 
   return (
     <>
-      <div className="w-full h-screen flex items-center justify-center ">
-        <fieldset className="w-[90%] md:w-[50%] h-[80%] p-5 border-2 flex items-center flex-col justify-center bg-gradient-to-r from-[#f5f5f5] to-[#e0e0e0] rounded-lg ">
-          <legend className="text-5xl ml-[10%]">Login Here</legend>
-          <form className="flex flex-col items-center justify-center ">
-            <h1 className="text-4xl mb-4">Owner Login</h1>
-            <input
-              type="password"
-              placeholder="Enter password"
-              value={password}
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-              className="p-2 w-96 border border-black rounded-md outline-none focus:shadow-[2px_2px_2px_rgba(5,10,25,1)] transition-all duration-300 mb-4"
-            />
-            <button
-              onClick={handleLogin}
-              className="bg-blue-500 text-white px-4 py-2 rounded-full cursor-pointer text-xl font-semibold hover:bg-gray-700 w-96 hover:text-black transition duration-300 active:scale-90 active:bg-green-400 active:text-black"
-            >
-              Login
-            </button>
-          </form>
-          {error && (
-            <div className="text-red-500 mt-4 text-lg font-semibold">
-              {errorMessage}
-            </div>
-          )}
-        </fieldset>
-      </div>
+    
+    <div className="min-h-screen bg-gradient-to-br flex flex-col from-indigo-500 to-purple-600 flex items-center justify-center px-4">
+      <form className="bg-white p-8 flex flex-col rounded-2xl shadow-xl w-full max-w-sm animate-fade-in">
+        <h2 className="text-2xl font-semibold text-center text-gray-800 mb-6">
+          Secure Login
+        </h2>
+         
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full px-4 py-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+        />
+        <p className="text-red-500 mb-4 text-center">{errorMessage}</p>
+        <button
+  onClick={handleLogin}
+  className="w-full cursor-pointer bg-indigo-600 text-white py-2 rounded-lg transition-all duration-300 hover:bg-black active:scale-90 active:duration-150"
+>
+  Login
+</button>
+
+      </form>
+    </div>
     </>
   );
 };

@@ -10,7 +10,7 @@ import Footer from "./src/components/Footer/Footer";
 import PrivateRoute from "./src/components/Login/PrivateRoute";
 import Details from "./src/components/Details/Details";
 import { dummydata } from "./src/data";
-
+import Cart from "./src/components/cart/Cart";
 
 const Layout = () => {
  
@@ -21,9 +21,11 @@ const Layout = () => {
     <>
       {!hideNavAndFooter && <Navbar />}
       <Routes>
+       
         <Route path="/login" element={<Login />} />
         <Route path="/details/:id" element={<PrivateRoute><Details items={dummydata} /></PrivateRoute>} />
         <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />
+        <Route path="/cart" element={<PrivateRoute><Cart/></PrivateRoute>} />
         <Route path="/shop" element={<PrivateRoute><Shop /></PrivateRoute>} />
         <Route path="/grocery" element={<PrivateRoute><Grocery /></PrivateRoute>} />
         <Route path="/feedback" element={<PrivateRoute><Feedback /></PrivateRoute>} />

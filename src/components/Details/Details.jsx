@@ -29,34 +29,47 @@ const Details = ({ items }) => {
       x: 0,
       transition: {
         duration: 1,
-        delay:  1.5 * i,
+        delay:  1.2 ,
+        ease: "linear",
+      },
+    },
+  });
+  const headingAnimate3 = (i) => ({
+    initial: { x: "100%", opacity: 0 },
+    animate: {
+      opacity: 1,
+
+      x: 0,
+      transition: {
+        duration: 1,
+        delay:  1.2 *i ,
         ease: "linear",
       },
     },
   });
 
   return (
-    <div className="w-full h-full flex items-center justify-center">
+    <div className="w-full h-full flex items-center justify-center overflow-hidden">
       <div className="w-[90%] h-[90%] bg-white rounded-lg shadow-lg flex flex-col md:flex-col items-center justify-center gap-4 p-4 perspective-[200px]">
         <img src={detail.image} alt="" />
         <motion.div
           initial={{ opacity: 0, x: "100%" }}
-          whileInView={{ opacity: 1, x: "0%" }}
+          animate={{ opacity: 1, x: "0%" }}
           transition={{ duration: 0.3, delay: 0.4, ease: "easeInOut" }}
           className="flex flex-col gap-2 w-full bg-zinc-200 rounded-md px-12 py-5 transform hover:translate-z-0.5 hover:translate-y-[-5px] transition-transform duration-300"
         >
           <motion.h1
             variants={headingAnimate(1)}
             initial="initial"
-            whileInView="animate"
+            animate="animate"
             className="text-4xl font-bold mb-4"
           >
             Basic Details
           </motion.h1>
           <motion.h1
-            variants={headingAnimate2(1.4)}
+            variants={headingAnimate3(1.2)}
             initial="initial"
-            whileInView="animate"
+            animate="animate"
             className="text-2xl text-gray-900 font-semibold"
           >
             <span className="text-gray-900 text-3xl font-semibold underline">
@@ -64,18 +77,18 @@ const Details = ({ items }) => {
             </span>
           </motion.h1>
           <motion.h1
-            variants={headingAnimate2(1.6)}
+            variants={headingAnimate3(1.4)}
             initial="initial"
-            whileInView="animate"
+            animate="animate"
             className="text-xl text-gray-900 font-semibold"
           >
             Category:{" "}
             <span className="text-gray-600 underline">{detail.category}</span>
           </motion.h1>
           <motion.h1
-            variants={headingAnimate2(1.8)}
+            variants={headingAnimate3(1.6)}
             initial="initial"
-            whileInView="animate"
+            animate="animate"
             className="text-xl text-gray-900 font-semibold"
           >
             Price:{" "}
@@ -90,7 +103,7 @@ const Details = ({ items }) => {
           className="w-full bg-zinc-200 px-12 py-5 rounded-md transform hover:translate-z-0.5 hover:translate-y-[-5px] transition-transform duration-300"
         >
           <motion.h1
-            variants={headingAnimate(2)}
+            variants={headingAnimate(1)}
             initial="initial"
             whileInView="animate"
             className="text-4xl font-bold mb-4"
@@ -108,7 +121,7 @@ const Details = ({ items }) => {
                         ([subKey, subValue], subIndex) => (
                           <motion.li
                             key={`${key}-${subKey}-${subIndex}`} // Unique key for each sub-item
-                            variants={headingAnimate2(4)}
+                            variants={headingAnimate2(1)}
                             initial="initial"
                             whileInView="animate"
                             className="text-xl text-gray-900 font-semibold"
@@ -126,7 +139,7 @@ const Details = ({ items }) => {
                     return (
                       <motion.li
                         key={`${key}-${index}`} // Unique key for each item
-                        variants={headingAnimate2(4)}
+                        variants={headingAnimate2(2)}
                         initial="initial"
                         whileInView="animate"
                         className="text-xl text-gray-900 font-semibold"
