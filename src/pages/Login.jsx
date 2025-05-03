@@ -36,7 +36,7 @@ const Login = () => {
   return (
     <>
     
-    <div className="min-h-screen bg-gradient-to-br flex flex-col from-indigo-500 to-purple-600 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-gradient-to-br flex-col from-indigo-500 to-purple-600 flex items-center justify-center px-4">
       <form className="bg-white p-8 flex flex-col rounded-2xl shadow-xl w-full max-w-sm animate-fade-in">
         <h2 className="text-2xl font-semibold text-center text-gray-800 mb-6">
           Secure Login
