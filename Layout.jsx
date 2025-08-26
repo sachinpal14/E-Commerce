@@ -1,19 +1,19 @@
 import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import Login from "./src/pages/Login";
-import Home from "./src/pages/Home";
-import Shop from "./src/pages/Shop";
-import Grocery from "./src/pages/Grocery";
-import Feedback from "./src/pages/Feedback";
-import Navbar from "./src/components/nav/Navbar";
-import Footer from "./src/components/Footer/Footer";
-import PrivateRoute from "./src/components/Login/PrivateRoute";
-import Details from "./src/components/Details/Details";
-import { dummydata } from "./src/data";
-import Cart from "./src/components/cart/Cart";
+ 
+import Home from "./src/pages/Home.jsx";
+import Shop from "./src/pages/Shop.jsx";
+import Grocery from "./src/pages/Grocery.jsx";
+import Feedback from "./src/pages/Feedback.jsx";
+import Navbar from "./src/components/nav/Navbar.jsx";
+import Footer from "./src/components/Footer/Footer.jsx";
+ 
+import Details from "./src/components/Details/Details.jsx";
+import { dummydata } from "./src/data.js";
+import Cart from "./src/components/cart/Cart.jsx";
 
 const Layout = () => {
- 
+
   const location = useLocation();
   const hideNavAndFooter = location.pathname === "/login";
 
@@ -21,17 +21,17 @@ const Layout = () => {
     <>
       {!hideNavAndFooter && <Navbar />}
       <Routes>
-       
-        <Route path="/login" element={<Login />} />
-        <Route path="/details/:id" element={<PrivateRoute><Details items={dummydata} /></PrivateRoute>} />
-        <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />
-        <Route path="/cart" element={<PrivateRoute><Cart/></PrivateRoute>} />
-        <Route path="/shop" element={<PrivateRoute><Shop /></PrivateRoute>} />
-        <Route path="/grocery" element={<PrivateRoute><Grocery /></PrivateRoute>} />
-        <Route path="/feedback" element={<PrivateRoute><Feedback /></PrivateRoute>} />
-        <Route path="*" element={<PrivateRoute><h1>404 Not Found</h1></PrivateRoute>} />
+
+
+        <Route path="/details/:id" element={<Details items={dummydata} />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/grocery" element={<Grocery />} />
+        <Route path="/feedback" element={<Feedback />} />
+        <Route path="*" element={<h1>404 Not Found</h1>} />
       </Routes>
-    { !hideNavAndFooter && <Footer />}
+      {!hideNavAndFooter && <Footer />}
     </>
   );
 };

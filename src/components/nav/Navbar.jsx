@@ -62,13 +62,7 @@ else {
    <NavLink to='shop' className={({isActive}) => isActive ? "bg-gray-400 px-4 py-1 rounded-xl " :"bg-transparent"} >Shop</NavLink>
    <NavLink to='grocery' className={({isActive}) => isActive ? "bg-gray-400 px-4 py-1 rounded-xl " :"bg-transparent"} >Grocery</NavLink>
    <NavLink to='feedback' className={({isActive}) => isActive ? "bg-gray-400 px-4 py-1 rounded-xl " :"bg-transparent"} >Feedback</NavLink>
-
-   <button
-    onClick={() => {
-      localStorage.removeItem("owner_logged_in");
-      window.location.href = "/login";
-    }}
-   className='absolute top-50% right-1 md:right-2 active:scale-90 transition-all duration-150 bg-red-500 cursor-pointer md:px-4 md:py-0 md:text-[15px] px-2 py-1 text-[10px] rounded-md'>Logout</button>
+ 
 
     </div>
     </div>
